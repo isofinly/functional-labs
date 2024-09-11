@@ -31,13 +31,6 @@
 #
 #  IndexTags:
 #    enabled: true # Generate a tags file with `ctags` each time HEAD changes
-CommitMsg:
-  ConventionalCommit:
-    enabled: true
-    description: 'Ensure commit message follows Conventional Commit format'
-    required_pattern: '/^(feat|fix|chore|docs|style|refactor|test|perf|build|ci|revert|other)(\([\w-]+\))?: .+$/'
-    error_message: 'Commit message does not follow Conventional Commits format. Expected format: <type>(<scope>): <subject>'
-
 PreCommit:
   MixTest:
     enabled: true
@@ -49,3 +42,20 @@ PreCommit:
     required_executable: 'markdownlint'
     description: 'Linting Markdown files'
 
+CommitMsg:
+  MessageFormat:
+    enabled: true
+    description: 'Check if commit message follows Conventional Commits'
+    pattern: '^(feat|fix|docs|style|refactor|perf|test|chore)(\([a-z\-]+\))?:\s.+$'
+    expected_pattern_message: >
+      Commit message does not follow the Conventional Commits standard.
+      Format should be: <type>([optional scope]): <description>
+
+      Valid types: feat, fix, docs, style, refactor, perf, test, chore
+
+      Examples:
+      feat: add new feature
+      fix(auth): resolve login issue
+      docs: update README
+    sample_message: 'feat(ui): add new button component'
+    on_warn: fail
