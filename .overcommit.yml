@@ -31,6 +31,13 @@
 #
 #  IndexTags:
 #    enabled: true # Generate a tags file with `ctags` each time HEAD changes
+CommitMsg:
+  ConventionalCommit:
+    enabled: true
+    description: 'Ensure commit message follows Conventional Commit format'
+    required_pattern: '/^(feat|fix|chore|docs|style|refactor|test|perf|build|ci|revert|other)(\([\w-]+\))?: .+$/'
+    error_message: 'Commit message does not follow Conventional Commits format. Expected format: <type>(<scope>): <subject>'
+
 PreCommit:
   MixTest:
     enabled: true
