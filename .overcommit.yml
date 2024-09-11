@@ -46,7 +46,7 @@ CommitMsg:
   MessageFormat:
     enabled: true
     description: 'Check if commit message follows Conventional Commits'
-    pattern: '^(feat|fix|docs|style|refactor|perf|test|chore)(\([a-z\-]+\))?:\s.+$'
+    pattern: '^(feat|fix|chore|docs|style|refactor|test|perf|build|ci|revert|other)(\([a-z\-]+\))?:\s.+$'
     expected_pattern_message: >
       Commit message does not follow the Conventional Commits standard.
       Format should be: <type>([optional scope]): <description>
