@@ -16,6 +16,9 @@ defmodule Labs.MixProject do
   #
   # Run "mix help deps" for examples and options.
   defp deps do
-    [{:credo, "~> 1.7", only: [:dev, :test], runtime: false}]
+    [
+      {:credo, "~> 1.7", only: [:dev, :test], runtime: false},
+      {:benchee, "~> 1.0", only: :dev}
+    ]
   end
 end

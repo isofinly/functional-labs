@@ -40,3 +40,80 @@ by $a^b$ for $2 \le a \le 100$ and $2 \le b \le 100$?
 ## Ключевые элементы реализации с минимальными комментариями
 
 ## Выводы
+
+Benchmarking the second problem via benchee yielded these results:
+
+### Euler's 2-nd problem
+
+#### Results for 2 problem
+
+| Name            | ips         | average  | deviation        | median        | 99th %        |
+|-----------------|-------------|----------|-------------------|---------------|---------------|
+| Tail recursion  | 21.42 M     | 46.68 ns | ±1153.92%        | 45.80 ns      | 58.40 ns      |
+| Traditional     | 16.72 M     | 59.81 ns | ±350.26%         | 42 ns         | 125 ns        |
+| Recursion       | 9.50 M      | 105.23 ns| ±68835.59%        | 83 ns         | 166 ns        |
+| Comprehension   | 2.06 M      | 485.13 ns| ±7459.91%         | 334 ns        | 1125 ns       |
+| Stream          | 1.59 M      | 630.70 ns| ±4636.46%         | 459 ns        | 666 ns        |
+| Modular         | 1.48 M      | 675.39 ns| ±4193.83%         | 500 ns        | 1083.31 ns    |
+| Map             | 1.20 M      | 834.26 ns| ±2780.11%         | 625 ns        | 1417 ns       |
+
+#### Comparison for 2 problem
+
+| Name            | ips         | Relative performance | Difference |
+|-----------------|-------------|----------------------|------------|
+| Tail recursion  | 21.42 M     | 1.00x                | -           |
+| Traditional     | 16.72 M     | 1.28x slower         | +13.13 ns  |
+| Recursion       | 9.50 M      | 2.25x slower         | +58.55 ns  |
+| Comprehension   | 2.06 M      | 10.39x slower        | +438.46 ns |
+| Stream          | 1.59 M      | 13.51x slower        | +584.02 ns |
+| Modular         | 1.48 M      | 14.47x slower        | +628.72 ns |
+| Map             | 1.20 M      | 17.87x slower        | +787.58 ns |
+
+#### Memory usage statistics for 2 problem
+
+| Name            | Memory usage |
+|-----------------|--------------|
+| Tail recursion  | 0 KB         |
+| Traditional     | 0 KB         |
+| Recursion       | 0 KB         |
+| Comprehension   | 2.33 KB      |
+| Stream          | 3.35 KB      |
+| Modular         | 3.42 KB      |
+| Map             | 3.53 KB      |
+
+### Euler's 29-th problem
+
+Benchmarking the 29-th problem via benchee yielded these results:
+
+#### Results for 29 problem
+
+| Name            | ips         | average  | deviation        | median        | 99th %        |
+|-----------------|-------------|----------|-------------------|---------------|---------------|
+| Comprehension   | 928.00      | 1.08 ms  | ±7.24%           | 1.07 ms       | 1.24 ms       |
+| Stream          | 745.20      | 1.34 ms  | ±4.49%           | 1.35 ms       | 1.50 ms       |
+| Recursion       | 571.00      | 1.75 ms  | ±5.63%           | 1.74 ms       | 2.02 ms       |
+| Traditional     | 525.63      | 1.90 ms  | ±8.79%           | 1.85 ms       | 2.35 ms       |
+| Modular         | 460.50      | 2.17 ms  | ±11.89%          | 2.10 ms       | 2.77 ms       |
+| Tail recursion  | 388.39      | 2.57 ms  | ±6.65%           | 2.53 ms       | 3.12 ms       |
+
+#### Comparison for 29 problem
+
+| Name            | ips         | Relative performance | Difference |
+|-----------------|-------------|----------------------|------------|
+| Comprehension   | 928.00      | 1.00x                | -           |
+| Stream          | 745.20      | 1.25x slower         | +0.26 ms   |
+| Recursion       | 571.00      | 1.63x slower         | +0.67 ms   |
+| Traditional     | 525.63      | 1.77x slower         | +0.82 ms   |
+| Modular         | 460.50      | 2.02x slower         | +1.09 ms   |
+| Tail recursion  | 388.39      | 2.39x slower         | +1.50 ms   |
+
+#### Memory usage statistics for 29 problem
+
+| Name            | Memory usage |
+|-----------------|--------------|
+| Comprehension   | 0.61 MB      |
+| Stream          | 1.58 MB      |
+| Recursion       | 3.97 MB      |
+| Traditional     | 3.99 MB      |
+| Modular         | 5.66 MB      |
+| Tail recursion  | 3.80 MB      |
