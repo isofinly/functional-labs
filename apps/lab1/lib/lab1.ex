@@ -47,7 +47,7 @@ defmodule Lab1 do
   end
 
   @doc """
-  Euler problem #2: Sequence generation using map (fixed)
+  Euler problem #2: Sequence generation using map
   """
   def sum_even_fibs_map_generation do
     Stream.unfold({0, 1}, fn {a, b} ->
@@ -60,7 +60,7 @@ defmodule Lab1 do
   end
 
   @doc """
-  Euler problem #2: Using special syntax for loops (fixed)
+  Euler problem #2: Using special syntax for loops
   """
   def sum_even_fibs_comprehension do
     for a <-
@@ -138,17 +138,6 @@ defmodule Lab1 do
     end)
     |> Stream.uniq()
     |> Enum.count()
-  end
-
-  def distinct_powers_map_generation(n) do
-    2..n
-    |> Enum.map(fn a ->
-      2..n
-      |> Enum.map(fn b -> :math.pow(a, b) end)
-    end)
-    |> List.flatten()
-    |> Enum.uniq()
-    |> length()
   end
 
   @doc """
