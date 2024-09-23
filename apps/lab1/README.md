@@ -45,7 +45,7 @@ Benchmarking the second problem via benchee yielded these results:
 
 ### Euler's 2-nd problem
 
-#### Results for 2 problem
+#### Results for problem 2
 
 | Name            | ips         | average  | deviation        | median        | 99th %        |
 |-----------------|-------------|----------|-------------------|---------------|---------------|
@@ -57,7 +57,7 @@ Benchmarking the second problem via benchee yielded these results:
 | Modular         | 1.48 M      | 675.39 ns| ±4193.83%         | 500 ns        | 1083.31 ns    |
 | Map             | 1.20 M      | 834.26 ns| ±2780.11%         | 625 ns        | 1417 ns       |
 
-#### Comparison for 2 problem
+#### Comparison for problem 2
 
 | Name            | ips         | Relative performance | Difference |
 |-----------------|-------------|----------------------|------------|
@@ -69,7 +69,7 @@ Benchmarking the second problem via benchee yielded these results:
 | Modular         | 1.48 M      | 14.47x slower        | +628.72 ns |
 | Map             | 1.20 M      | 17.87x slower        | +787.58 ns |
 
-#### Memory usage statistics for 2 problem
+#### Memory usage statistics for problem 2
 
 | Name            | Memory usage |
 |-----------------|--------------|
@@ -85,7 +85,7 @@ Benchmarking the second problem via benchee yielded these results:
 
 Benchmarking the 29-th problem via benchee yielded these results:
 
-#### Results for 29 problem
+#### Results for problem 29
 
 | Name            | ips         | average  | deviation        | median        | 99th %        |
 |-----------------|-------------|----------|-------------------|---------------|---------------|
@@ -96,7 +96,7 @@ Benchmarking the 29-th problem via benchee yielded these results:
 | Modular         | 460.50      | 2.17 ms  | ±11.89%          | 2.10 ms       | 2.77 ms       |
 | Tail recursion  | 388.39      | 2.57 ms  | ±6.65%           | 2.53 ms       | 3.12 ms       |
 
-#### Comparison for 29 problem
+#### Comparison for problem 29
 
 | Name            | ips         | Relative performance | Difference |
 |-----------------|-------------|----------------------|------------|
@@ -107,7 +107,7 @@ Benchmarking the 29-th problem via benchee yielded these results:
 | Modular         | 460.50      | 2.02x slower         | +1.09 ms   |
 | Tail recursion  | 388.39      | 2.39x slower         | +1.50 ms   |
 
-#### Memory usage statistics for 29 problem
+#### Memory usage statistics for problem 29
 
 | Name            | Memory usage |
 |-----------------|--------------|
