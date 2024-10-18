@@ -20,6 +20,8 @@ defmodule Lab2.Helper do
 
       StreamData.map(elements, fn elems ->
         Enum.reduce(elems, Lab2.OpenAddressSet.new(capacity), fn el, acc ->
+          # It is kinda pointless to test the test helper for function depth
+          # credo:disable-for-next-line
           case Lab2.OpenAddressSet.add(acc, el) do
             {:error, _} -> acc
             {:ok, new_set} -> new_set
