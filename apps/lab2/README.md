@@ -48,6 +48,52 @@
    - Модульные тесты для всех операций
    - Property-based тесты для проверки свойств моноида
 
+## Примеры использования
+
+Вот несколько примеров использования реализованного множества:
+
+```elixir
+# Создание нового множества
+set = Lab2.OpenAddressSet.new(10)
+
+# Добавление элементов
+{:ok, set} = Lab2.OpenAddressSet.add(set, 1)
+{:ok, set} = Lab2.OpenAddressSet.add(set, 2)
+{:ok, set} = Lab2.OpenAddressSet.add(set, 3)
+
+# Удаление элемента
+set = Lab2.OpenAddressSet.remove(set, 2)
+
+# Фильтрация элементов
+even_set = Lab2.OpenAddressSet.filter(set, fn x -> rem(x, 2) == 0 end)
+
+# Отображение элементов
+doubled_set = Lab2.OpenAddressSet.map(set, fn x -> x * 2 end)
+
+# Свертка (сумма всех элементов)
+sum = Lab2.OpenAddressSet.fold_left(set, 0, fn x, acc -> x + acc end)
+
+# Объединение множеств
+set1 = Lab2.OpenAddressSet.new(5)
+{:ok, set1} = Lab2.OpenAddressSet.add(set1, 1)
+{:ok, set1} = Lab2.OpenAddressSet.add(set1, 2)
+
+set2 = Lab2.OpenAddressSet.new(5)
+{:ok, set2} = Lab2.OpenAddressSet.add(set2, 2)
+{:ok, set2} = Lab2.OpenAddressSet.add(set2, 3)
+
+union_set = Lab2.OpenAddressSet.union(set1, set2)
+
+# Проверка на пустоту
+is_empty = Lab2.OpenAddressSet.empty?(set)
+
+# Получение размера множества
+size = Lab2.OpenAddressSet.size(set)
+
+# Преобразование в список
+list = Lab2.OpenAddressSet.to_list(set)
+```
+
 ## Тесты и метрики
 
 ### Тесты
