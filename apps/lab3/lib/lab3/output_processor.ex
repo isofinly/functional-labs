@@ -11,8 +11,8 @@ defmodule Lab3.OutputProcessor do
     receive do
       {:output, method, xs, ys} ->
         IO.puts("#{method}:")
-        IO.puts(Enum.map(xs, &float_to_string(&1)) |> Enum.join("\t"))
-        IO.puts(Enum.map(ys, &float_to_string(&1)) |> Enum.join("\t"))
+        IO.puts(Enum.map_join(xs, "\t", &float_to_string(&1)))
+        IO.puts(Enum.map_join(ys, "\t", &float_to_string(&1)))
         loop()
 
       :eof ->

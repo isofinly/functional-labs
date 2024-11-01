@@ -8,21 +8,27 @@ defmodule Lab3.InputProcessor do
   end
 
   defp loop(alg_pids) do
-    case IO.gets("") do
-      :eof ->
-        Enum.each(alg_pids, fn pid -> send(pid, :eof) end)
+    handle_input(IO.gets(""), alg_pids)
+  end
 
-      data ->
-        case parse_line(data) do
-          {:ok, point} ->
-            Enum.each(alg_pids, fn pid -> send(pid, {:point, point}) end)
+  defp handle_input(:eof, alg_pids) do
+    Enum.each(alg_pids, fn pid -> send(pid, :eof) end)
+  end
 
-          {:error, reason} ->
-            IO.puts("Failed to parse line: #{reason}")
-        end
+  defp handle_input(data, alg_pids) do
+    data
+    |> parse_line()
+    |> broadcast_result(alg_pids)
 
-        loop(alg_pids)
-    end
+    loop(alg_pids)
+  end
+
+  defp broadcast_result({:ok, point}, alg_pids) do
+    Enum.each(alg_pids, fn pid -> send(pid, {:point, point}) end)
+  end
+
+  defp broadcast_result({:error, reason}, _alg_pids) do
+    IO.puts("Failed to parse line: #{reason}")
   end
 
   defp parse_line(line) do
